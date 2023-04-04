@@ -42,35 +42,38 @@ class GuiRectangle(Rectangle):
         canvas.left(90)
         canvas.forward(self.point2.y - self.point1.y)
 
-        turtle.done()
+
+class GuiPoint(Point):
+
+    def draw(self, canvas, size=5, color="red"):
+        canvas.penup()
+        canvas.goto(self.x, self.y)
+        canvas.pendown()
+        canvas.dot(size, color)
 
 
-gui_rectangle = GuiRectangle(Point(randint(0, 400), randint(0, 400)),
-                             Point(randint(10, 400), randint(10, 400)))
+# Create rectangle object
+rectangle = GuiRectangle(Point(randint(0, 400), randint(0, 400)),
+                         Point(randint(10, 400), randint(10, 400)))
+
+# Print rectangle coordinates
+print("Rectangle Coordinates: ",
+      rectangle.point1.x, ",",
+      rectangle.point1.y, "and",
+      rectangle.point2.x, ",",
+      rectangle.point2.y
+      )
+
+# Get point and area from user
+user_point = GuiPoint(float(input("Guess x: ")), float(input("Guess y: ")))
+user_area = float(input("Guess rectangle area: "))
+
+# Print out the game result
+print("Your point was inside rectangle: ", user_point.falls_in_rectangle(rectangle))
+print("Your area was off by: ", rectangle.area() - user_area)
 
 my_turtle = turtle.Turtle()
+rectangle.draw(canvas=my_turtle)
+user_point.draw(canvas=my_turtle)
 
-gui_rectangle.draw(canvas=my_turtle)
-print(gui_rectangle.area())
-
-# # Create rectangle object
-# rectangle = Rectangle(Point(randint(0, 400), randint(0, 400)),
-#                       Point(randint(10, 400), randint(10, 400)))
-#
-#
-# # Print rectangle coordinates
-# print("Rectangle Coordinates: ",
-#       rectangle.point1.x, ",",
-#       rectangle.point1.y, "and",
-#       rectangle.point2.x, ",",
-#       rectangle.point2.y
-#       )
-#
-#
-# # Get point and area from user
-# user_point = Point(float(input("Guess x: ")), float(input("Guess y: ")))
-# user_area = float(input("Guess rectangle area: "))
-#
-# # Print out the game result
-# print("Your point was inside rectangle: ", user_point.falls_in_rectangle(rectangle))
-# print("Your area was off by: ", rectangle.area() - user_area)
+turtle.done()
