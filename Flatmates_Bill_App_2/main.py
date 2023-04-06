@@ -44,3 +44,4 @@ john = FlatMate(name="John", days_in_house=20)
 marry = FlatMate(name="Marry", days_in_house=25)
 
 print(f"John pays: {john.pays(bill=the_bill, flatmate2=marry)}")
+print(f"Marry pays: {marry.pays(bill=the_bill, flatmate2=john)}")
