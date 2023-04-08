@@ -22,7 +22,7 @@ class PdfReport:
 
         # Add icon
         pdf.image(
-            name="D:\\Python_project_for_git\\Python10OopApps\\python_10_oop_apps\\Flatmates_Bill_App_2\\files\\house.png",
+            name="files/house.png",
             w=30, h=30
         )
 
