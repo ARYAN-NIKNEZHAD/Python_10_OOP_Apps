@@ -12,5 +12,6 @@ data[3:4, 1:4] = [45, 3, 233]
 
 
 img = Image.fromarray(data, "RGB")
-img.save("canvas.png")
+img.save("files/canvas.png")
+
 
